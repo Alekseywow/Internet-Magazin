@@ -23,6 +23,8 @@ body {
 }
 
 
+
+
 .title {
     text-align: center;
     @extend %roboto-700;
@@ -44,4 +46,48 @@ a {
     line-height: 26px;
     color: $default;
     @extend %quicksand-500;
+}
+
+.breadcrumbs{
+    display: inline-flex;
+    justify-content: center;
+    padding-left: 25px;
+    position: relative;
+    &::before{
+        content: '';
+        position: absolute;
+        background-image: url(../images/home.png);
+        width: 16px;
+        height: 16px;
+        top: 2px;
+        left: 0;
+    }
+    &__list {
+        display: flex;
+    }
+    &__item{
+        padding-right: 40px;
+        color: #727272;
+        position: relative;
+        &::after{
+            content: '';
+            position: absolute;
+            background-image: url(../images/angle_right.png);
+            width: 9px;
+            height: 10px;
+            top: 7px;
+            right: 15px;
+            
+        }
+        &:last-child{
+            color: $accent;
+            padding-right: 0;
+            &::after{
+                display: none;
+            }
+        }
+    }
+    &__link{
+        color: inherit;
+    }
 }
